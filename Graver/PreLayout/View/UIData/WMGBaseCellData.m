@@ -17,14 +17,14 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 //
-    
+
 
 #import "WMGBaseCellData.h"
 
 @implementation WMGBaseCellData
-
-- (Class)cellClass
-{
+#warning modify by slj 不建议采用，还是要自己手动写下代码
+//WMPoiListCellData  去除最后4个字符串 => WMPoiListCell
+- (Class)cellClass {
     NSString *cell = [NSStringFromClass([self class]) substringWithRange:NSMakeRange(0, NSStringFromClass([self class]).length - 4)];
     return NSClassFromString(cell);
 }

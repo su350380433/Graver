@@ -3,6 +3,7 @@ platform :ios, '9.0'
 target 'GraverDemo' do
 
   pod "Graver", :path => './'
+  pod 'DoraemonKit'
 
   target 'GraverDemoTests' do
     inherit! :search_paths

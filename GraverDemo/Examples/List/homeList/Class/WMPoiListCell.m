@@ -20,7 +20,6 @@
         _drawView = [[WMPoiListTextView alloc] initWithFrame:CGRectZero];
         [_drawView addTarget:self action:@selector(tagDidClick) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:_drawView];
-        
     }
     return self;
 }
@@ -30,7 +29,7 @@
     _drawView.frame = CGRectMake(0, 0, cellData.cellWidth, cellData.cellHeight);
     _drawView.drawerDates = cellData.mutableAttributedTexts;
 }
-
+//父类的delegate， 回调
 - (void)tagDidClick {
     if ([self.delegate respondsToSelector:@selector(tagDidClickInCell:)]) {
         [self.delegate tagDidClickInCell:self];

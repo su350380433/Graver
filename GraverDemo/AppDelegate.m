@@ -7,7 +7,9 @@
 
 #import "AppDelegate.h"
 #import "ExamplesViewController.h"
-
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonManager.h>
+#endif
 @interface AppDelegate ()
 
 @end
@@ -16,12 +18,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+#ifdef DEBUG
+    [[DoraemonManager shareInstance] install];
+#endif
     ExamplesViewController *examplesViewController = [[ExamplesViewController alloc] init];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:examplesViewController];
     self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
-    
+
     // Override point for customization after application launch.
     return YES;
 }

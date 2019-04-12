@@ -1,25 +1,45 @@
 PODS:
+  - BSBacktraceLogger (0.0.1)
+  - DoraemonKit (1.1.7):
+    - BSBacktraceLogger
+    - DoraemonKit/Core (= 1.1.7)
+    - fishhook
+    - PNChart
+    - UITextView+Placeholder
+  - DoraemonKit/Core (1.1.7):
+    - BSBacktraceLogger
+    - fishhook
+    - PNChart
+    - UITextView+Placeholder
+  - fishhook (0.2)
   - Graver (1.0.0):
     - SDWebImage (~> 4.2)
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - UICountingLabel (1.2.0)
+  - UITextView+Placeholder (1.2.1)
 
 DEPENDENCIES:
+  - DoraemonKit
   - Graver (from `./`)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - SDWebImage
 
 EXTERNAL SOURCES:
   Graver:
     :path: "./"
 
 SPEC CHECKSUMS:
-  Graver: 3e974e0716be6dc28af0dbb3f8a46d0850a79494
+  BSBacktraceLogger: 06b983ee93a9f87d957960e9c73d660d5966b447
+  DoraemonKit: 0ac105ce8924477c22c57cc303798c04ab3c4dcd
+  fishhook: ea19933abfe8f2f52c55fd8b6e2718467d3ebc89
+  Graver: 53e1d7b04839f338681719458dc533dfe20ac6a7
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+  UITextView+Placeholder: 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: 0a5ed983c3e6c74655e7a3c5ade5fd8bf18ed775
+PODFILE CHECKSUM: d5705f64e2ff1eb58d49936195188fd72c367fa2
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.2.1
