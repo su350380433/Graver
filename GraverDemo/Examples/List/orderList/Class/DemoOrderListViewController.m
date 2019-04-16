@@ -7,13 +7,13 @@
 //
 
 #import "DemoOrderListViewController.h"
+#import "DemoOrderListEngine.h"
 #import "DemoOrderListViewModel.h"
+#import "DemoOrderModel.h"
 #import "WMGBaseCell.h"
 #import "WMGBaseCellData.h"
-#import "DemoOrderModel.h"
-#import "DemoOrderListEngine.h"
 @interface DemoOrderListViewController ()
-@property (nonatomic, strong) UITableView * tableview;
+@property (nonatomic, strong) UITableView *tableview;
 @property (nonatomic, strong) WMGBaseViewModel *viewModel;
 @end
 
@@ -23,21 +23,21 @@
     [super viewDidLoad];
     [self.navigationController setTitle:@"订单列表"];
     [self.view addSubview:self.tableview];
-    
-    
+
+
     _viewModel = [[DemoOrderListViewModel alloc] init];
     _viewModel.engine = [[DemoOrderListEngine alloc] init];
-    
+
     __weak typeof(self) weakSelf = self;
-    [_viewModel reloadDataWithParams:@{} completion:^(NSArray<WMGBaseCellData *> *cellLayouts, NSError *error) {
-        if (weakSelf) {
-            [weakSelf.tableview reloadData];
-        }
-    }];
+    [_viewModel reloadDataWithParams:@{}
+                          completion:^(NSArray<WMGBaseCellData *> *cellLayouts, NSError *error) {
+                              if (weakSelf) {
+                                  [weakSelf.tableview reloadData];
+                              }
+                          }];
 }
 
-- (UITableView *)tableview
-{
+- (UITableView *)tableview {
     if (!_tableview) {
         _tableview = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableview.delegate = self;
@@ -48,26 +48,22 @@
     return _tableview;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _viewModel.arrayLayouts.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     WMGBaseCellData *cellData = [_viewModel.arrayLayouts objectAtIndex:indexPath.row];
     return cellData.cellHeight;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WMGBaseCellData *cellData = [_viewModel.arrayLayouts objectAtIndex:indexPath.row];
-    
+
     WMGBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(cellData.cellClass)];
     if (!cell) {
         cell = [(WMGBaseCell *)[cellData.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass(cellData.cellClass)];
@@ -79,20 +75,19 @@
     if (!cell) {
         cell = [[WMGBaseCell alloc] init];
     }
-    
+
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+
     WMGBaseCellData *cellData = [_viewModel.arrayLayouts objectAtIndex:indexPath.row];
     DemoOrderModel *model = (DemoOrderModel *)cellData.metaData;
     model.poiName = @"xxx";
-    
+
     [model setNeedsUpdateUIData];
-    
+
     [_viewModel refreshModelWithResultSet:_viewModel.engine.resultSet];
     [_tableview reloadData];
 }

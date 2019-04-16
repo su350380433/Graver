@@ -7,16 +7,15 @@
 //
 
 #import "DemoOrderCellData.h"
-#import "WMGTextDrawer.h"
 #import "UIImage+Graver.h"
+#import "WMGTextDrawer.h"
 
 @interface DemoOrderCellData ()
 @end
 
 @implementation DemoOrderCellData
 
-- (instancetype)init
-{
+- (instancetype)init {
     if (self = [super init]) {
         _textDrawerDatas = [NSMutableArray array];
     }
@@ -24,8 +23,13 @@
 }
 
 
-- (Class)cellClass{
+- (Class)cellClass {
     return NSClassFromString(@"DemoOrderListCell");
 }
+// cell高度
+- (CGFloat)cellHeight {
+    return 290;
+}
+
 
 @end
