@@ -22,12 +22,14 @@
 #import "ExamplesViewController.h"
 #import "BasicDetailViewController.h"
 #import "DemoOrderListViewController.h"
+#import "ExamplesInjectionVC.h"
 #import "WMGBaseCell.h"
 #import "WMPoiListViewController.h"
-
 typedef NS_ENUM(NSUInteger, GraverDemoSection) {
     GraverDemoSection_Basic,
     GraverDemoSection_List,
+    GraverDemoSection_UI,
+
 };
 
 typedef NS_ENUM(NSInteger, GraverDemoListRow) {
@@ -43,23 +45,27 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
 
 @implementation ExamplesViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"Examples";
 
     _dataSource = [NSMutableArray array];
-    _dataSource = @[@[@"基本使用", @"高级使用", @"文本计算", @"图片相关"], @[@"外卖商家列表", @"外卖订单列表"]];
+    _dataSource = @[@[@"基本使用", @"高级使用", @"文本计算", @"图片相关23"], @[@"外卖商家列表", @"外卖订单列表"] /*,@[@"UI神器injectionIII"]*/];
 
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
+
+    //    _tableView.backgroundColor = [UIColor redColor];
+
     // Do any additional setup after loading the view.
 
-    DemoOrderListViewController *resturantVC = [[DemoOrderListViewController alloc] init];
-    [self.navigationController pushViewController:resturantVC animated:YES];
+    //    DemoOrderListViewController *resturantVC = [[DemoOrderListViewController alloc] init];
+    //    [self.navigationController pushViewController:resturantVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,7 +89,13 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
     label.backgroundColor = [UIColor clearColor];
     label.textColor = WMGHEXCOLOR(0x333333);
     label.font = [UIFont systemFontOfSize:14];
-    label.text = (section == 0) ? @"基本使用" : @"列表示例";
+    if (section == 0) {
+        label.text = @"基本使用";
+    } else if (section == 1) {
+        label.text = @"列表示例";
+    } else {
+        label.text = @"UI神器示例";
+    }
 
     [view addSubview:label];
 
@@ -133,6 +145,11 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
             [self.navigationController pushViewController:orderVC animated:YES];
         }
     }
+    //    else if (indexPath.section == GraverDemoSection_UI) {
+    //        ExamplesInjectionVC *VC = [[ExamplesInjectionVC alloc] init];
+    //        [self.navigationController pushViewController:VC animated:YES];
+    //
+    //    }
 }
 
 @end

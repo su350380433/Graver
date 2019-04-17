@@ -115,7 +115,7 @@
 }
 
 - (void)advancedUseDemo {
-    WMPoiListAttributedImage *status = [[WMPoiListAttributedImage alloc] initWithText:@"雕工"];
+    WMPoiListAttributedImage *status = [[WMPoiListAttributedImage alloc] initWithText:@"雕工323"];
     [status setColor:WMGHEXCOLOR(0xFFFFFF)];
     [status setFont:[UIFont systemFontOfSize:16]];
     CGSize statusSize = [status.resultString wmg_size];

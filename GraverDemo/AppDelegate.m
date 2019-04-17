@@ -26,7 +26,11 @@
     self.window.rootViewController = navVC;
     [self.window makeKeyAndVisible];
 
-    // Override point for customization after application launch.
+#if DEBUG
+//    [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle"] load];
+//    [InjectionManager inject];
+#endif
+    //    // Override point for customization after application launch.
     return YES;
 }
 

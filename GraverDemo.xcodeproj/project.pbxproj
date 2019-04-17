@@ -22,6 +22,8 @@
 		2C930B0B21B7B5B20087E086 /* WMPoiListCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C930B0921B7B5B20087E086 /* WMPoiListCellData.m */; };
 		2C930B0E21B7B6490087E086 /* WMPoiListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C930B0D21B7B6490087E086 /* WMPoiListViewController.m */; };
 		2C930B1121B7B8240087E086 /* WMPoiListAttributedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C930B1021B7B8240087E086 /* WMPoiListAttributedImage.m */; };
+		50B9E27E2265D9CA0047C1F9 /* InjectionIIIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B9E27D2265D9CA0047C1F9 /* InjectionIIIHelper.m */; };
+		50B9E2812265ED230047C1F9 /* ExamplesInjectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B9E2802265ED230047C1F9 /* ExamplesInjectionVC.m */; };
 		83206AFF21B6579500A46AAB /* DemoOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83206AF221B6579300A46AAB /* DemoOrderListViewController.m */; };
 		83206B0121B6579500A46AAB /* DemoOrderCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 83206AF721B6579400A46AAB /* DemoOrderCellData.m */; };
 		83206B0221B6579500A46AAB /* DemoOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83206AF921B6579400A46AAB /* DemoOrderModel.m */; };
@@ -98,6 +100,10 @@
 		2C930B0D21B7B6490087E086 /* WMPoiListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPoiListViewController.m; sourceTree = "<group>"; };
 		2C930B0F21B7B8240087E086 /* WMPoiListAttributedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPoiListAttributedImage.h; sourceTree = "<group>"; };
 		2C930B1021B7B8240087E086 /* WMPoiListAttributedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPoiListAttributedImage.m; sourceTree = "<group>"; };
+		50B9E27C2265D9C90047C1F9 /* InjectionIIIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InjectionIIIHelper.h; path = GraverDemo/InjectionIIIHelper.h; sourceTree = "<group>"; };
+		50B9E27D2265D9CA0047C1F9 /* InjectionIIIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InjectionIIIHelper.m; path = GraverDemo/InjectionIIIHelper.m; sourceTree = "<group>"; };
+		50B9E27F2265ED230047C1F9 /* ExamplesInjectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExamplesInjectionVC.h; sourceTree = "<group>"; };
+		50B9E2802265ED230047C1F9 /* ExamplesInjectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExamplesInjectionVC.m; sourceTree = "<group>"; };
 		5208C5AD0C19012534F8B3E5 /* libPods-GraverDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GraverDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDF682C72CF5B6FCDE31D65 /* Pods-GraverDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraverDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraverDemo/Pods-GraverDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		83206AF221B6579300A46AAB /* DemoOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoOrderListViewController.m; sourceTree = "<group>"; };
@@ -294,6 +300,8 @@
 			children = (
 				DD16297121B14086008A951E /* ExamplesViewController.h */,
 				DD16297221B14086008A951E /* ExamplesViewController.m */,
+				50B9E27F2265ED230047C1F9 /* ExamplesInjectionVC.h */,
+				50B9E2802265ED230047C1F9 /* ExamplesInjectionVC.m */,
 				DD16297E21B145BB008A951E /* List */,
 				DD16297D21B145B6008A951E /* Basic */,
 			);
@@ -326,6 +334,8 @@
 		DD669F9D21AFB5A200E9C7D5 = {
 			isa = PBXGroup;
 			children = (
+				50B9E27C2265D9C90047C1F9 /* InjectionIIIHelper.h */,
+				50B9E27D2265D9CA0047C1F9 /* InjectionIIIHelper.m */,
 				DD669FA821AFB5A200E9C7D5 /* GraverDemo */,
 				DD669FC121AFB5A300E9C7D5 /* GraverDemoTests */,
 				DD669FCC21AFB5A300E9C7D5 /* GraverDemoUITests */,
@@ -727,8 +737,10 @@
 				2C930B1121B7B8240087E086 /* WMPoiListAttributedImage.m in Sources */,
 				83206B0421B6579500A46AAB /* DemoOrderListContentView.m in Sources */,
 				DD669FAE21AFB5A200E9C7D5 /* ViewController.m in Sources */,
+				50B9E2812265ED230047C1F9 /* ExamplesInjectionVC.m in Sources */,
 				83206B0221B6579500A46AAB /* DemoOrderModel.m in Sources */,
 				83206B0C21B7968100A46AAB /* DemoOrderListEngine.m in Sources */,
+				50B9E27E2265D9CA0047C1F9 /* InjectionIIIHelper.m in Sources */,
 				83206B0921B792E000A46AAB /* DemoOrderListViewModel.m in Sources */,
 				83206B0521B6579500A46AAB /* DemoOrderListCell.m in Sources */,
 				2C930B0221B7B4990087E086 /* WMPoiListEngine.m in Sources */,
@@ -918,7 +930,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9H8DB7NU55;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Graver.pch";
 				INFOPLIST_FILE = GraverDemo/Info.plist;
@@ -938,7 +950,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9H8DB7NU55;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Graver.pch";
 				INFOPLIST_FILE = GraverDemo/Info.plist;
