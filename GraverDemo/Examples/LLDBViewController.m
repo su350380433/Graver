@@ -1,42 +1,52 @@
 //
-//  ExamplesInjectionVC.m
+//  LLDBViewController.m
 //  GraverDemo
 //
-//  Created by S S on 2019/4/16.
+//  Created by S S on 2019/4/17.
 //
 
-#import "ExamplesInjectionVC.h"
+#import "LLDBViewController.h"
 
-@interface ExamplesInjectionVC ()
+@interface LLDBViewController ()
 
 @property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UILabel *lbl;
+
 @end
 
-@implementation ExamplesInjectionVC
+@implementation LLDBViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self addTestUI];
-
-    //    [self removeButton];
+    // Do any additional setup after loading the view
+    [self addButton1];
+    [self addButton2];
 }
-
-- (void)addTestUI {
+- (void)addButton1 {
     self.view.backgroundColor = [UIColor whiteColor];
 
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 200, 100)];
-    [button setTitle:@"5oiR5piv6Ieq5bex5re75Yqg55qE" forState:UIControlStateNormal];
+    [button setTitle:@"我是自己添加的" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
     button.titleLabel.textColor = [UIColor blueColor];
+    [button setBackgroundColor:[UIColor grayColor]];
     [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     self.button = button;
 }
 
-- (void)removeButton {
-    [self.button removeFromSuperview];
+- (void)addButton2 {
+    self.view.backgroundColor = [UIColor whiteColor];
+    UILabel *lb = [UILabel new];
+    lb.frame = CGRectMake(100, 300, 100, 50);
+    lb.text = @"看我的";
+    lb.textColor = [UIColor purpleColor];
+    lb.font = [UIFont systemFontOfSize:16];
+    lb.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:lb];
+    self.lbl = lb;
 }
+
 
 - (void)buttonAction {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"我是石头蹦出来的" preferredStyle:UIAlertControllerStyleAlert];
@@ -51,5 +61,12 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+
+- (void)buttonAction2 {
+    int i = 10;
+    int j = 0;
+    //    int c = i/j;
+    //    NSLog(@"%ld",c);
+}
 
 @end

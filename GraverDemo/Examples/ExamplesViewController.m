@@ -25,6 +25,8 @@
 #import "ExamplesInjectionVC.h"
 #import "WMGBaseCell.h"
 #import "WMPoiListViewController.h"
+
+#import "LLDBViewController.h"
 typedef NS_ENUM(NSUInteger, GraverDemoSection) {
     GraverDemoSection_Basic,
     GraverDemoSection_List,
@@ -52,7 +54,7 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
     self.navigationItem.title = @"Examples";
 
     _dataSource = [NSMutableArray array];
-    _dataSource = @[@[@"基本使用", @"高级使用", @"文本计算", @"图片相关23"], @[@"外卖商家列表", @"外卖订单列表"] /*,@[@"UI神器injectionIII"]*/];
+    _dataSource = @[@[@"基本使用", @"高级使用", @"文本计算", @"图片相关23"], @[@"外卖商家列表", @"外卖订单列表"], @[@"lldb", /*@"UI神器injectionIII"*/]];
 
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
     _tableView.delegate = self;
@@ -60,10 +62,13 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 
+    //    [Xtrace showCaller:YES];
+    //    [Xtrace describeValues:YES];
+    //    [UINavigationController xtrace];
+
+
     //    _tableView.backgroundColor = [UIColor redColor];
-
     // Do any additional setup after loading the view.
-
     //    DemoOrderListViewController *resturantVC = [[DemoOrderListViewController alloc] init];
     //    [self.navigationController pushViewController:resturantVC animated:YES];
 }
@@ -120,7 +125,6 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
     }
     cell.textLabel.text = text;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-
     WMGBaseCellData *data = [[WMGBaseCellData alloc] init];
     data.cellWidth = self.view.frame.size.width;
     data.cellHeight = 60;
@@ -144,12 +148,15 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
             DemoOrderListViewController *orderVC = [[DemoOrderListViewController alloc] init];
             [self.navigationController pushViewController:orderVC animated:YES];
         }
+    } else if (indexPath.section == GraverDemoSection_UI) {
+        if (indexPath.row == 0) {
+            LLDBViewController *VC = [[LLDBViewController alloc] init];
+            [self.navigationController pushViewController:VC animated:YES];
+        } else {
+            ExamplesInjectionVC *VC = [[ExamplesInjectionVC alloc] init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }
     }
-    //    else if (indexPath.section == GraverDemoSection_UI) {
-    //        ExamplesInjectionVC *VC = [[ExamplesInjectionVC alloc] init];
-    //        [self.navigationController pushViewController:VC animated:YES];
-    //
-    //    }
 }
 
 @end
