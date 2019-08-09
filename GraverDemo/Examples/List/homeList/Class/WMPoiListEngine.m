@@ -33,7 +33,7 @@
     }];
 
     [self.resultSet reset];
-    for (NSInteger i = 0; i < 20; i++) {
+    for (NSInteger i = 0; i < 50; i++) {
         [self.resultSet addItems:result];
     }
 

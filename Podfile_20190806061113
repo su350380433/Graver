@@ -1,0 +1,49 @@
+platform :ios, '9.0'
+
+target 'GraverDemo' do
+
+    source 'https://github.com/CocoaPods/Specs.git'
+  pod "Graver", :path => './'
+  pod 'DoraemonKit'
+
+  pod 'AFNetworking'
+
+  pod 'YQDebug', :path => '../YQDebug',  :configurations => ['Debug']
+  pod 'Masonry'
+  
+  source 'https://gitlab.meiyou.com/iOS/imyspecs.git'
+  pod 'IMYFoundation',:git => 'git@gitlab.meiyou.com:iOS/IMYFoundation.git'
+
+  target 'GraverDemoTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GraverDemoUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+#    installer.pods_project.targets.each do |target|
+#        target.build_configurations.each do |config|
+#            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', 'YUNQI=1']
+#        end
+#    end
+
+#    classy_pods_target = installer.pods_project.targets.find {| target | target.name == 'YQDebug'}
+#    classy_pods_target.build_configurations.each do | config |
+#        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', 'XCode101=1']
+#    end
+
+end
+post_install do |installer|
+    
+    classy_pods_target = installer.pods_project.targets.find {| target | target.name == 'IMYDEBUG'}
+    classy_pods_target.build_configurations.each do | config |
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', 'XCode101=1']
+    end
+
+end

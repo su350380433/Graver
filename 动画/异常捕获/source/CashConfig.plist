@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dingding</key>
+	<dict>
+		<key>access_token</key>
+		<string>9b0490d608f6a00f6e5e2c94bc86374cd4a2da969315a23b992a35581ff87503</string>
+		<key>api</key>
+		<string>https://oapi.dingtalk.com/robot/send?access_token=</string>
+	</dict>
+</dict>
+</plist>

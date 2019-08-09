@@ -59,7 +59,7 @@
     _scrollView.showsVerticalScrollIndicator = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_scrollView];
-    [self xtrace];
+    //    [self xtrace];
     //TODO:
     NSString *title = @"";
 

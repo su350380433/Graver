@@ -20,13 +20,16 @@
 
 
 #import "ExamplesViewController.h"
+#import "AddViewController.h"
 #import "BasicDetailViewController.h"
 #import "DemoOrderListViewController.h"
 #import "ExamplesInjectionVC.h"
+#import "LLDBViewController.h"
 #import "WMGBaseCell.h"
 #import "WMPoiListViewController.h"
+//#import "SendMsgToDingDingVCViewController.h"
+//#import "CashViewController.h"
 
-#import "LLDBViewController.h"
 typedef NS_ENUM(NSUInteger, GraverDemoSection) {
     GraverDemoSection_Basic,
     GraverDemoSection_List,
@@ -54,7 +57,7 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
     self.navigationItem.title = @"Examples";
 
     _dataSource = [NSMutableArray array];
-    _dataSource = @[@[@"基本使用", @"高级使用", @"文本计算", @"图片相关23"], @[@"外卖商家列表", @"外卖订单列表"], @[@"lldb", /*@"UI神器injectionIII"*/]];
+    _dataSource = @[@[@"基本使用", @"高级使用", @"文本计算", @"图片相关"], @[@"外卖商家列表", @"外卖订单列表"], @[@"lldb", @"UI神器injectionIII"], @[@"钉钉测试", @"异常捕获"]];
 
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height)];
     _tableView.delegate = self;
@@ -153,8 +156,17 @@ typedef NS_ENUM(NSInteger, GraverDemoListRow) {
             LLDBViewController *VC = [[LLDBViewController alloc] init];
             [self.navigationController pushViewController:VC animated:YES];
         } else {
-            ExamplesInjectionVC *VC = [[ExamplesInjectionVC alloc] init];
+            AddViewController *VC = [[AddViewController alloc] init];
             [self.navigationController pushViewController:VC animated:YES];
+        }
+    } else {
+        if (indexPath.row == 1) {
+
+            //            CashViewController *VC = [[CashViewController alloc] init];
+            //            [self.navigationController pushViewController:VC animated:YES];
+        } else {
+            //            SendMsgToDingDingVCViewController *VC = [[SendMsgToDingDingVCViewController alloc] init];
+            //            [self.navigationController pushViewController:VC animated:YES];
         }
     }
 }

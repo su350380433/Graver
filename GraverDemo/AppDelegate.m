@@ -9,6 +9,8 @@
 #import "ExamplesViewController.h"
 #ifdef DEBUG
 #import <DoraemonKit/DoraemonManager.h>
+
+
 #endif
 @interface AppDelegate ()
 
@@ -20,6 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 #ifdef DEBUG
     [[DoraemonManager shareInstance] install];
+    //链式调用 是否显示警告框 是否显示错误信息 是否回调日志地址
+//    InstanceYQUncaughtExceptionHandler().showAlert(YES).showErrorInfor(YES).getlogPathBlock(^(NSString *logPathStr){
+//        NSLog(@"程序异常日志地址 == %@",logPathStr);
+//    });
 #endif
     ExamplesViewController *examplesViewController = [[ExamplesViewController alloc] init];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:examplesViewController];

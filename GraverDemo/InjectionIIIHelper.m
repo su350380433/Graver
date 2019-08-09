@@ -27,20 +27,20 @@ void injected(id self, SEL _cmd) {
 }
 
 + (void)load {
-    //    //注册项目启动监听
-    //    __block id observer =
-    //        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification
-    //                                                          object:nil
-    //                                                           queue:nil
-    //                                                      usingBlock:^(NSNotification *_Nonnull note) {
-    //                                                          //更改bundlePath
-    //                                                          [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle"] load];
-    //
-    //                                                          [[NSNotificationCenter defaultCenter] removeObserver:observer];
-    //                                                      }];
-    //
-    //    //给UIViewController 注册injected 方法
-    //    class_addMethod([UIViewController class], NSSelectorFromString(@"injected"), (IMP)injected, "v@:");
+    //注册项目启动监听
+    __block id observer =
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification
+                                                          object:nil
+                                                           queue:nil
+                                                      usingBlock:^(NSNotification *_Nonnull note) {
+                                                          //更改bundlePath
+                                                          [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection10.bundle"] load];
+
+                                                          [[NSNotificationCenter defaultCenter] removeObserver:observer];
+                                                      }];
+
+    //给UIViewController 注册injected 方法
+    class_addMethod([UIViewController class], NSSelectorFromString(@"injected"), (IMP)injected, "v@:");
 }
 #endif
 @end
